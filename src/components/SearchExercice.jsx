@@ -1,40 +1,41 @@
 import React, { useEffect, useState } from 'react'
 
 import { Stack, Box, TextField, Typography, Button } from '@mui/material'
-import { fetchData, exercicesOptions } from '../utils/fetchData'
+import { fetchData, exercisesOptions } from '../utils/fetchData'
 import HorizontalScrollData from './HorizontalScrollData';
-const SearchExercice = () => {
+
+const SearchExercice = ({ setExercises, bodyPart, setBodyPart }) => {
 
     const [search, setSearch] = useState('');
-    const [exercices, setExercices] = useState([]);
+
     const [bodyParts, setBodyParts] = useState([]);
 
-    // cargar data mostrar info al inicio de bodyPart trae lista de Nombres !!
+
 
     useEffect(() => {
-const fetchExerciceData = async () => {
-    const bodyPartData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exercicesOptions ) // url completa
-    setBodyParts(["all", ...bodyPartData]) // lista nombres 
-    
-   
-}
-fetchExerciceData()
+        const fetchExerciseData = async () => {
+            const bodyPartData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exercisesOptions) // url completa
+            setBodyParts(["all", ...bodyPartData]) // lista nombres 
+
+
+        }
+        fetchExerciseData()
 
     }, []);
 
     const handleSearch = async () => {
         if (search) {
 
-            const exercicesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exercicesOptions)
-            const searchExercicesData = exercicesData.filter(exercice => exercice.name.toLowerCase().includes(search)
-            || exercice.target.toLowerCase().includes(search)
-                || exercice.equipment.toLowerCase().includes(search)
-                || exercice.bodyPart.toLowerCase().includes(search)
-                );
-                setSearch('')
-                setExercices(searchExercicesData)
-            }
-            
+            const exercicesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exercisesOptions)
+            const searchExercicesData = exercicesData.filter(exercise => exercise.name.toLowerCase().includes(search)
+                || exercise.target.toLowerCase().includes(search)
+                || exercise.equipment.toLowerCase().includes(search)
+                || exercise.bodyPart.toLowerCase().includes(search)
+            );
+            setSearch('')
+            setExercises(searchExercicesData)
+        }
+
     }
     return (
         <Stack
@@ -85,13 +86,12 @@ fetchExerciceData()
                     Search
 
                 </Button>
-        
+
             </Box>
             <Box sx={{
-                position:"relative", width:"100%", p:"20px"
-                <HorizontalScrollData data={bodyParts} />
+                position: "relative", width: "100%", p: "20px"
             }}>
-
+                <HorizontalScrollData data={bodyParts} bodyParts bodyPart={bodyPart} setBodyPart={setBodyPart} ></HorizontalScrollData>
             </Box>
         </Stack>
     )
