@@ -43,7 +43,7 @@ const HeroBaner = () => {
                 variant='contained'
                 color="error"
                 sx={{ backgroundColor: "#FF2625", padding: "10px" }}
-            >Explore Exercices</Button>
+            >Explore Exercice</Button>
             <Typography
                 fontWeight="600"
                 color="#FF2625"

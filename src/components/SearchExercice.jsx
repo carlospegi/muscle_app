@@ -10,12 +10,12 @@ const SearchExercice = ({ setExercises, bodyPart, setBodyPart }) => {
 
     const [bodyParts, setBodyParts] = useState([]);
 
-
+console.log(bodyParts);
 
     useEffect(() => {
         const fetchExerciseData = async () => {
             const bodyPartData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exercisesOptions) // url completa
-            setBodyParts(["all", ...bodyPartData]) // lista nombres 
+            setBodyParts(["all", ...bodyPartData]) 
 
 
         }
@@ -59,7 +59,7 @@ const SearchExercice = ({ setExercises, bodyPart, setBodyPart }) => {
                             border: "none",
                             borderRadius: "4px"
                         },
-                        width: { lg: "800px", xs: "350px" },  // revisar width.  se salia
+                        width: { lg: "800px", xs: "310px" },  
                         backgroundColor: "#fff",
                         borderRadius: "4px"
                     }}

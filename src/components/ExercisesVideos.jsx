@@ -16,9 +16,10 @@ const ExercicesVideos = ({ exerciseVideos, name }) => {
         justifyContent="flex-start"
         flexWrap="wrap"
         alignItems="center"
+        margin="0"
         sx={{
           flexDirection: { lg: "row" },
-          gap: { lg: "110px", xs: "0" }
+          gap: { lg: "27px", xs: "0" }
         }}
       >
 

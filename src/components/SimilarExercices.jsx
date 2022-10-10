@@ -7,7 +7,7 @@ const SimilarExercices = ({ targetMuscleExercises, equipmentExercises }) => {
 
   return (
     <Box sx={{ mt: { lg: "100px", xs: "0" } }}>
-      <Typography variant="h3" mb={5}>
+      <Typography sx={{ fontSize: { lg: '44px', xs: '25px' }, ml: '20px' }} fontWeight={700} color="#000" mb="33px">
         Exercices that target same muscle group
       </Typography>
       <Stack
@@ -18,7 +18,7 @@ const SimilarExercices = ({ targetMuscleExercises, equipmentExercises }) => {
           <Loader />}
 
       </Stack>
-      <Typography variant="h3" mb={5}>
+      <Typography sx={{ fontSize: { lg: '44px', xs: '25px' }, ml: '20px' }} fontWeight={700} color="#000" mb="33px">
         Exercices that use the same equipment
       </Typography>
       <Stack

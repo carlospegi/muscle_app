@@ -30,7 +30,7 @@ const RightArrow = () => {
 
 
 const HorizontalScrollData = ({ data, bodyPart, setBodyPart, bodyParts }) => {
-  console.log(data);
+
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {
